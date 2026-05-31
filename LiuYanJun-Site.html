@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>刘彦君 · AI Product Lead</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#fff;--ink:#1d1d1f;--gray:#86868b;--line:#d2d2d7;--blue:#0071e3;--soft:#f5f5f7}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:400;line-height:1.5;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;background:rgba(255,255,255,0.72);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:center}
+.nav-inner{max-width:980px;width:100%;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:600;font-size:17px;letter-spacing:-0.3px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--ink);font-size:12px;text-decoration:none;opacity:0.8}
+.nav-links a:hover{opacity:1}
+.hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 60px}
+.hero h1{font-size:clamp(40px,7vw,80px);font-weight:600;letter-spacing:-2px;line-height:1.05;margin-bottom:20px}
+.hero h1 .grad{background:linear-gradient(90deg,#0071e3,#9333ea);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:clamp(19px,2.6vw,26px);color:var(--gray);font-weight:400;max-width:640px;letter-spacing:-0.3px;margin-bottom:40px}
+.hero .sub b{color:var(--ink);font-weight:600}
+.hero-cta{display:flex;gap:18px}
+.btn{padding:11px 24px;border-radius:980px;font-size:15px;font-weight:500;text-decoration:none;transition:all .2s;cursor:pointer}
+.btn-fill{background:var(--blue);color:#fff}
+.btn-fill:hover{background:#0077ed}
+.btn-text{color:var(--blue)}
+.kpi{display:flex;justify-content:center;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:64px;width:100%;max-width:820px}
+.kpi-item{flex:1;min-width:160px;padding:32px 16px;text-align:center;border-right:1px solid var(--line)}
+.kpi-item:last-child{border-right:none}
+.kpi-num{font-size:clamp(32px,5vw,48px);font-weight:600;letter-spacing:-1.5px;line-height:1}
+.kpi-num.blue{color:var(--blue)} .kpi-num.purple{color:#9333ea}
+.kpi-cap{font-size:13px;color:var(--gray);margin-top:8px}
+section{padding:120px 0}
+.sec-label{font-size:14px;color:var(--blue);font-weight:600;text-align:center;margin-bottom:12px;letter-spacing:0.5px}
+.sec-title{font-size:clamp(32px,5vw,56px);font-weight:600;text-align:center;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px}
+.sec-sub{font-size:clamp(17px,2.2vw,21px);color:var(--gray);text-align:center;max-width:620px;margin:0 auto 64px;font-weight:400}
+
+/* 作品对比大区 */
+.showcase{background:#000;border-radius:28px;overflow:hidden;margin-bottom:24px;padding:56px 40px}
+.showcase .sc-head{text-align:center;margin-bottom:48px}
+.showcase .sc-tag{font-size:13px;color:#5e9eff;font-weight:600;margin-bottom:14px}
+.showcase .sc-title{font-size:clamp(26px,3.5vw,38px);font-weight:600;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.showcase .sc-sub{font-size:16px;color:#a1a1a6;max-width:560px;margin:0 auto;line-height:1.6}
+.ba{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:center;max-width:760px;margin:0 auto}
+.ba-col{text-align:center}
+.ba-col img{width:100%;border-radius:16px;object-fit:cover;aspect-ratio:3/4;background:#fff}
+.ba-label{font-size:13px;margin-top:14px;font-weight:500}
+.ba-label.in{color:#86868b}
+.ba-label.out{color:#5e9eff}
+.ba-arrow{padding:0 20px;color:#48484a;font-size:28px}
+.ba-note{text-align:center;color:#86868b;font-size:13px;margin-top:32px}
+
+/* 单图大展示 */
+.hero-img{max-width:520px;margin:0 auto;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.hero-img img{width:100%;display:block}
+.hero-img-cap{text-align:center;color:#a1a1a6;font-size:14px;margin-top:24px}
+
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:24px}
+.vcard{background:var(--soft);border-radius:24px;padding:28px 24px;text-align:center}
+.vcard-img{height:160px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.vcard-img img{max-width:100%;max-height:160px;border-radius:12px;object-fit:contain}
+.vcard-name{font-size:16px;font-weight:600;margin-bottom:20px}
+.vcard-rows{display:flex;flex-direction:column;gap:10px}
+.vrow{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-radius:12px}
+.vrow.them{background:#ededf0} .vrow.us{background:var(--blue)}
+.vrow-label{font-size:12px;font-weight:500}
+.vrow.them .vrow-label{color:var(--gray)} .vrow.us .vrow-label{color:rgba(255,255,255,0.85)}
+.vrow-num{font-size:24px;font-weight:600;letter-spacing:-1px}
+.vrow.them .vrow-num{color:var(--ink)} .vrow.us .vrow-num{color:#fff}
+.versus-note{text-align:center;font-size:14px;color:var(--gray);margin-bottom:64px;max-width:640px;margin-left:auto;margin-right:auto}
+
+.fullcase{background:var(--soft);border-radius:28px;overflow:hidden;text-align:center;padding:56px 40px 0;margin-bottom:24px}
+.fullcase .tag{font-size:13px;color:var(--blue);font-weight:600;margin-bottom:14px}
+.fullcase h3{font-size:clamp(26px,3.5vw,38px);font-weight:600;letter-spacing:-1px;margin-bottom:14px;line-height:1.1}
+.fullcase p{font-size:17px;color:var(--gray);max-width:580px;margin:0 auto 40px;line-height:1.5}
+.fullcase .media img{width:100%;max-width:900px;display:block;margin:0 auto;border-radius:16px 16px 0 0;box-shadow:0 -2px 40px rgba(0,0,0,0.08)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.tile{background:var(--soft);border-radius:28px;overflow:hidden;display:flex;flex-direction:column}
+.tile .copy{padding:40px 40px 24px}
+.tile .copy .tag{font-size:12px;color:var(--blue);font-weight:600;margin-bottom:10px}
+.tile .copy h3{font-size:24px;font-weight:600;letter-spacing:-0.5px;margin-bottom:10px}
+.tile .copy p{font-size:15px;color:var(--gray);line-height:1.5}
+.tile .media{margin-top:auto}
+.tile .media img{width:100%;display:block;box-shadow:0 -2px 20px rgba(0,0,0,0.05);border-radius:12px 12px 0 0;margin:0 auto;max-width:92%}
+.chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:720px;margin:0 auto}
+.chip{background:var(--soft);border-radius:980px;padding:12px 22px;font-size:15px;font-weight:500;color:var(--ink)}
+.chip span{color:var(--gray);font-weight:400}
+.contact{text-align:center;background:var(--ink);color:#fff;border-radius:28px;padding:80px 40px}
+.contact h2{font-size:clamp(32px,5vw,52px);font-weight:600;letter-spacing:-1.5px;margin-bottom:16px}
+.contact p{font-size:19px;color:#a1a1a6;margin-bottom:40px}
+.contact .info{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;font-size:16px;color:#d2d2d7}
+.contact .btn-fill{display:inline-block;margin-bottom:32px}
+footer{text-align:center;padding:40px;color:var(--gray);font-size:12px}
+@media(max-width:760px){
+  .nav-links{display:none} .split{grid-template-columns:1fr}
+  .kpi-item{min-width:50%;border-bottom:1px solid var(--line)}
+  section{padding:80px 0} .vgrid{grid-template-columns:1fr;gap:16px}
+  .ba{grid-template-columns:1fr;gap:16px} .ba-arrow{transform:rotate(90deg);padding:8px}
+}
+</style></head><body>
+
+<nav><div class="nav-inner">
+  <div class="logo">刘彦君</div>
+  <ul class="nav-links">
+    <li><a href="#work">战绩</a></li>
+    <li><a href="#gallery">AI作品</a></li>
+    <li><a href="#platform">平台</a></li>
+    <li><a href="#stack">能力</a></li>
+    <li><a href="#contact">联系</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero">
+  <h1>让 AI 真正<br><span class="grad">卖出货</span></h1>
+  <p class="sub">我是刘彦君，从 0 到 1 主导电商 AIGC 中台，<b>训练自研 AI lora 生图模型把单品牌半年 GMV 做到 5 倍以上</b></p>
+  <div class="hero-cta">
+    <a href="#work" class="btn btn-fill">看我做了什么</a>
+    <a href="#contact" class="btn btn-text">联系我 ›</a>
+  </div>
+  <div class="kpi wrap">
+    <div class="kpi-item"><div class="kpi-num blue">5×</div><div class="kpi-cap">单品牌半年 GMV</div></div>
+    <div class="kpi-item"><div class="kpi-num">20+</div><div class="kpi-cap">AI视觉模块上线</div></div>
+    <div class="kpi-item"><div class="kpi-num purple">81.9%</div><div class="kpi-cap">平台生图成功率</div></div>
+    <div class="kpi-item"><div class="kpi-num">¥0.02</div><div class="kpi-cap">单张主图成本</div></div>
+  </div>
+</header>
+
+<!-- ================== 真实战绩区 ================== -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-label">真实战绩</div>
+    <h2 class="sec-title">同款鞋，<br>主图决定销量</h2>
+    <p class="sec-sub">三款 LANVIN 同款，同期对比天猫国际官方自营。唯一的变量，是主图</p>
+    <div class="vgrid">
+      <div class="vcard">
+        <div class="vcard-img"><img src="https://cdn.jsdelivr.net/gh/liuyanjun724-spec/image@main/1.png" alt="黑色 CURB 面包鞋"></div>
+        <div class="vcard-name">黑色 CURB 面包鞋</div>
+        <div class="vcard-rows">
+          <div class="vrow them"><span class="vrow-label">竞品 · 天猫国际</span><span class="vrow-num">0</span></div>
+          <div class="vrow us"><span class="vrow-label">我们代运营 · AI主图</span><span class="vrow-num">76</span></div>
+        </div>
+      </div>
+      <div class="vcard">
+        <div class="vcard-img"><img src="https://cdn.jsdelivr.net/gh/liuyanjun724-spec/image@main/2.png" alt="撞色厚底增高鞋"></div>
+        <div class="vcard-name">撞色厚底增高鞋</div>
+        <div class="vcard-rows">
+          <div class="vrow them"><span class="vrow-label">竞品 · 天猫国际</span><span class="vrow-num">1</span></div>
+          <div class="vrow us"><span class="vrow-label">我们代运营 · AI主图</span><span class="vrow-num">34</span></div>
+        </div>
+      </div>
+      <div class="vcard">
+        <div class="vcard-img"><img src="https://cdn.jsdelivr.net/gh/liuyanjun724-spec/image@main/3.jpg" alt="白色复古球鞋"></div>
+        <div class="vcard-name">白色复古球鞋</div>
+        <div class="vcard-rows">
+          <div class="vrow them"><span class="vrow-label">竞品 · 天猫国际</span><span class="vrow-num">2</span></div>
+          <div class="vrow us"><span class="vrow-label">我们代运营 · AI主图</span><span class="vrow-num">300+</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="versus-note">所有主图由我搭建的 ComfyUI 工作流 + 自训 LoRA 生成，结合 VLM 做高奢视觉调优，单张成本 ¥0.02。数据为对应商品页公开「已售 / 付款」数</p>
+  </div>
+</section>
+
+<!-- ================== AI 作品对比大区 ================== -->
+<section id="gallery" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="sec-label">AI 作品</div>
+    <h2 class="sec-title">输入一张平铺图，<br>输出三张商业大片</h2>
+    <p class="sec-sub">自研工具基于开源模型 + 风格化图库，人像与服装还原度领先国内通用 AI 生图</p>
+
+    <!-- CURB 平铺 vs 成品 -->
+    <div class="showcase">
+      <div class="sc-head">
+        <div class="sc-tag">LANVIN CURB · 黑色面包鞋</div>
+        <div class="sc-title">同款鞋，平铺图 vs 我们的 AI 主图</div>
+        <div class="sc-sub">竞品用平铺图，半年售 0；我们用 AI 生成的场景化主图，半年卖出约 50 万销售额</div>
+      </div>
+      <div class="ba">
+         <!-- 左侧：我们 AI 主图（对应 1.png） -->
+         <div class="ba-col">
+             <img src="https://cdn.jsdelivr.net/gh/liuyanjun724-spec/image@main/1.png" alt="我们AI主图">
+             <div class="ba-label out">我们 · AI 主图 · 约 50 万销售额</div>
+        </div>
+        <div class="ba-arrow">→</div>
+        <!-- 右侧：竞品平铺图（修正为对应的 4.jpg） -->
+        <div class="ba-col">
+          <img src="https://cdn.jsdelivr.net/gh/liuyanjun724-spec/image@main/4.jpg" alt="天猫国际平铺图">
+          <div class="ba-label in">天猫国际 · 平铺图 · 售 0</div>
+        </div>
+      </div>
+      <p class="ba-note">同一款商品 · 同一时期 · 唯一差别是主图</p>
+    </div>
+
+    <!-- 羽绒服：输入白底图 -> 输出 AI 模特大片 -->
+    <div class="showcase">
+      <!-- sc-head 保持不变... -->
+      <div class="ba">
+         <!-- 输入：白底平铺图（对应 5.jpg） -->
+         <div class="ba-col">
+             <img src="https://cdn.jsdelivr.net/gh/liuyanjun724-spec/image@main/5.jpg" alt="羽绒服平铺图">
+             <div class="ba-label in">输入 · 白底平铺图</div>
+        </div>
+        <div class="ba-arrow">→</div>
+        <!-- 输出：AI 模特大片（对应 6.jpg） -->
+        <div class="ba-col">
+          <img src="https://cdn.jsdelivr.net/gh/liuyanjun724-spec/image@main/6.jpg" alt="AI模特大片">
+          <div class="ba-label out">输出 · AI 模特大片</div>
+        </div>
+      </div>
+      <p class="ba-note">同一件衣服 · 全程 AI 生成 · 还原度领先国内闭源生图模型</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================== 企业级中台大区 ================== -->
+<section id="platform">
+<div class="wrap">
+  <div class="sec-label">企业级中台</div>
+  <h2 class="sec-title">KEYing AI</h2>
+  <p class="sec-sub">从 0 到 1 主导落地 从前端vibe coding输出，到后端工作流，服务 100+ 设计师</p>
+
+  <!-- 详情页工作台大图展示（对应 7.png） -->
+  <div class="fullcase">
+    <div class="tag">高奢 · LANVIN</div>
+    <h3>详情页工作台</h3>
+    <p>描述页、颜色、尺码、模特、搭配、细节，六大模块一站式生成</p>
+    <div class="media"><img src="https://cdn.jsdelivr.net/gh/liuyanjun724-spec/image@main/7.png" alt="LANVIN工作台"></div>
+  </div>
+
+  <div class="split">
+    <!-- 左侧卡片：一键换装（对应 8.png） -->
+    <div class="tile">
+      <div class="copy"><div class="tag">服装品牌 · AI 虚拟模特</div><h3>一键换装方案</h3><p>主导 AI 虚拟模特出图方案，接入品牌主图生产全流程  一键换装，单张成本 ¥0.02</p></div>
+      <div class="media"><img src="https://cdn.jsdelivr.net/gh/liuyanjun724-spec/image@main/8.png" alt="AI换装"></div>
+    </div>
+    <!-- 右侧卡片：主图 ROI 看板（对应 9.jpg） -->
+    <div class="tile">
+      <div class="copy"><div class="tag">数据驱动</div><h3>主图 ROI 看板</h3><p>3,072 次任务、81.9% 成功率  回流转化数据，反哺产品迭代</p></div>
+      <div class="media"><img src="https://cdn.jsdelivr.net/gh/liuyanjun724-spec/image@main/9.jpg" alt="数据看板"></div>
+    </div>
+  </div>
+
+  <!-- 底部大图：无限画布（修正为对应的 10.png） -->
+  <div class="fullcase" style="background:var(--soft);margin-top:24px">
+    <div class="tag">无限画布 · 节点式 AI 创作</div>
+    <h3>把工作流，变成产品。</h3>
+    <p>React Flow 自研前端，文本与图像节点自由组合，VLM 反推提示词，连接商品数据与主图生产</p>
+    <div class="media"><img src="https://cdn.jsdelivr.net/gh/liuyanjun724-spec/image@main/10.png" alt="无限画布"></div>
+  </div>
+
+</div>
+</section>
+
+<section id="stack" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="sec-label">能力</div>
+    <h2 class="sec-title">技术 + 产品<br>一个人就是一条链路</h2>
+    <p class="sec-sub">从工作流调优到产品交付，更少的翻译 更高的效率</p>
+    <div class="chips">
+      <div class="chip">ComfyUI</div>
+      <div class="chip">自训 LoRA <span>人像/服装专精</span></div>
+      <div class="chip">Stable Diffusion · FLUX</div>
+      <div class="chip">Qwen-VL <span>视觉理解</span></div>
+      <div class="chip">Gemini 3</div>
+      <div class="chip">Vibe Coding <span>React/TSX</span></div>
+      <div class="chip">CTR / CVR <span>数据归因</span></div>
+      <div class="chip">Prompt Engineering</div>
+      <div class="chip">电商 AI <span>全链路落地</span></div>
+      <div class="chip">曼彻斯特大学 <span>AI 硕士</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2>在找下一个<br>能放大 AI 价值的地方</h2>
+      <p>服饰电商 · AIGC 商品图 · AI 视觉产品</p>
+      <a href="mailto:liuyanjun0324@126.com" class="btn btn-fill">发邮件给我</a>
+      <div class="info"><span>✉ liuyanjun0324@126.com</span><span>📱 17671428314</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 刘彦君 · AI Product Lead</footer>
+</body></html>
